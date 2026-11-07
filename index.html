@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#223dbe">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>OKEYHAUL spreadsheet – svensk guide till fynd, storlekar och QC</title>
+  <meta name="description" content="Utforska OKEYHAUL spreadsheet med en svensk köpguide. Jämför produktlänkar, storlekar, QC-bilder och totalkostnad innan du väljer skor och kläder.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:site_name" content="hipobuyfind.com">
+  <meta property="og:title" content="OKEYHAUL spreadsheet – hitta din stil med bättre underlag">
+  <meta property="og:description" content="Kategorier, praktiska köpguider och tydliga svar om storlekar, produktlänkar, QC och frakt.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Röd Nike-sneaker mot en röd bakgrund">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OKEYHAUL spreadsheet – svensk köpguide">
+  <meta name="twitter:description" content="Från första produktlänken till en genomtänkt inköpslista.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://commons.wikimedia.org">
+  <style>
+    :root {
+      --paper: #f7f5ee;
+      --white: #fff;
+      --ink: #17201d;
+      --muted: #535e59;
+      --blue: #223dbe;
+      --lime: #dce97d;
+      --line: #d8dcd1;
+      --radius: 20px;
+      --width: 1180px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 5px;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; letter-spacing: -.045em; }
+    h1 { font-size: clamp(2.8rem, 5.4vw, 4.9rem); font-weight: 780; }
+    h2 { font-size: clamp(1.9rem, 3.3vw, 3rem); }
+    h3 { font-size: 1.3rem; letter-spacing: -.025em; }
+    p + p { margin-top: 14px; }
+    .wrap { width: min(var(--width), calc(100% - 40px)); margin-inline: auto; }
+    .topline {
+      background: var(--blue);
+      color: white;
+      padding: 9px 20px;
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .08em;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-block: 25px;
+      border-bottom: 1px solid var(--line);
+    }
+    .logo { text-decoration: none; font-size: 1.35rem; font-weight: 850; letter-spacing: -.06em; }
+    .header-meta { color: var(--muted); font-size: .85rem; }
+    .header-link { font-weight: 650; font-size: .9rem; }
+    .categories { padding-block: 24px 30px; }
+    .eyebrow {
+      display: block;
+      font-size: .73rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 750;
+      margin-bottom: 14px;
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .category-grid a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      min-height: 54px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: .84rem;
+      font-weight: 650;
+      background: #ffffff70;
+    }
+    .category-grid a:hover { border-color: var(--blue); color: var(--blue); background: white; }
+    .category-grid span { color: var(--blue); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      background: var(--lime);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .hero-copy { padding: clamp(26px, 4vw, 52px); }
+    .hero-copy h1 span { color: var(--blue); }
+    .hero-copy p { max-width: 49ch; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 14px 21px;
+      background: var(--ink);
+      color: white;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 26px;
+    }
+    .button:hover { background: var(--blue); }
+    .hero-visual { background: #df2937; position: relative; min-height: 480px; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-visual figcaption {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #fff;
+      font-size: .77rem;
+    }
+    .quick-answer {
+      display: grid;
+      grid-template-columns: .6fr 1.4fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .quick-answer h2 { font-size: 1.5rem; }
+    .quick-answer p { max-width: 78ch; }
+    .section { padding-block: 64px; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .section-head p { color: var(--muted); max-width: 42ch; }
+    .editorial {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+    }
+    .editorial-image { background: #e8e7df; border-radius: var(--radius); overflow: hidden; }
+    .editorial-image img { width: 100%; height: 340px; object-fit: contain; }
+    .editorial-image figcaption { padding: 20px; font-size: .87rem; }
+    .editorial-image figcaption strong { display: block; margin-bottom: 5px; }
+    .editorial-copy {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .editorial-copy h3 { margin-bottom: 14px; }
+    .checks { list-style: none; margin: 22px 0 0; padding: 0; }
+    .checks li { padding: 13px 0; border-top: 1px solid var(--line); }
+    .checks strong { display: block; }
+    .checks span { color: var(--muted); font-size: .9rem; }
+    .guides {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .guide {
+      padding: 26px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .number { color: var(--blue); font-weight: 800; font-size: .85rem; display: block; margin-bottom: 24px; }
+    .guide h3 { margin-bottom: 18px; }
+    .guide p { color: var(--muted); font-size: .94rem; }
+    .guide a { display: inline-block; margin-top: 20px; color: var(--blue); font-weight: 700; font-size: .9rem; }
+    .band { background: var(--blue); color: white; padding-block: 48px; }
+    .band-inner { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; }
+    .band h2 { max-width: 13ch; }
+    .band p { color: #eef0ff; }
+    .formula { margin-top: 20px; padding: 20px; border: 1px solid #ffffff55; border-radius: 12px; }
+    .table-wrap { overflow-x: auto; margin-top: 26px; }
+    table { width: 100%; border-collapse: collapse; background: white; font-size: .93rem; }
+    caption { text-align: left; margin-bottom: 12px; font-weight: 650; color: var(--muted); }
+    th, td { padding: 17px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #eeeee6; font-weight: 700; }
+    td:first-child { font-weight: 650; min-width: 135px; }
+    .faq-layout { display: grid; grid-template-columns: .65fr 1.35fr; gap: 50px; }
+    .faq-layout > div > p { color: var(--muted); margin-top: 18px; }
+    details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+    details:first-child { border-top: 1px solid var(--line); }
+    summary { cursor: pointer; font-size: 1.03rem; font-weight: 700; padding-right: 12px; }
+    details p { color: var(--muted); padding-top: 14px; }
+    .topics { background: #eceee4; border-radius: var(--radius); padding: 28px; }
+    .topics h2 { font-size: 1.6rem; }
+    .topics > p { color: var(--muted); margin-top: 12px; max-width: 75ch; }
+    .topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 26px; }
+    .topic-grid h3 { font-size: 1rem; letter-spacing: -.015em; }
+    .topic-grid ul { margin: 12px 0 0; padding-left: 18px; font-size: .88rem; color: var(--muted); }
+    .topic-grid li { margin-block: 7px; }
+    .cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      border-block: 1px solid var(--line);
+      padding-block: 30px;
+      margin-top: 55px;
+    }
+    .cta h2 { font-size: 1.8rem; }
+    .cta p { margin-top: 8px; color: var(--muted); }
+    .cta .button { margin-top: 0; flex-shrink: 0; }
+    footer { padding-block: 32px; color: var(--muted); font-size: .8rem; }
+    footer p { max-width: 105ch; }
+    .credits { margin-top: 18px; overflow-wrap: anywhere; font-size: .72rem; }
+    @media (max-width: 850px) {
+      .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 0; }
+      .hero-visual img { height: auto; aspect-ratio: 16/10; }
+      .editorial, .band-inner, .faq-layout { grid-template-columns: 1fr; gap: 26px; }
+      .guides { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .band h2 { max-width: 20ch; }
+      .header-meta { display: none; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 28px); }
+      .header { padding-block: 19px; }
+      .logo { font-size: 1.2rem; }
+      .header-link { font-size: .78rem; }
+      .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .category-grid a { font-size: .77rem; padding: 10px; }
+      .hero-copy { padding: 27px 23px 32px; }
+      .quick-answer { grid-template-columns: 1fr; gap: 15px; }
+      .section { padding-block: 42px; }
+      .topic-grid { grid-template-columns: 1fr; gap: 20px; }
+      .cta { align-items: start; flex-direction: column; }
+      .editorial-image img { height: 260px; }
+      th, td { padding: 13px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      a { transition: background-color .15s, color .15s, border-color .15s; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "OKEYHAUL spreadsheet – svensk guide till fynd, storlekar och QC",
+        "inLanguage": "sv",
+        "description": "En fristående svensk guide till produktlänkar, storleksval, QC-bilder och totalkostnad.",
+        "about": {
+          "@type": "Thing",
+          "name": "OKEYHAUL spreadsheet",
+          "description": "En sammanställning av produktlänkar som kan användas som utgångspunkt för jämförelser."
+        }
+      },
+      {
+        "@type": "Article",
+        "headline": "Storlek först: så jämför du skor och plagg",
+        "inLanguage": "sv",
+        "author": {"@type": "Organization", "name": "hipobuyfind.com"},
+        "articleBody": "För skor: mät båda fötterna och utgå från den längre foten. Jämför med säljarens tabell för just modellen; samma EU-storlek kan passa olika. För kläder: jämför bröstvidd, längd och ärm med ett plagg du redan använder. Kontrollera om tabellen anger plaggets mått eller kroppsmått. För huvudbonader och accessoarer: kontrollera omkrets, justering och material."
+      },
+      {
+        "@type": "Article",
+        "headline": "QC-bilder: vad går faktiskt att kontrollera?",
+        "inLanguage": "sv",
+        "author": {"@type": "Organization", "name": "hipobuyfind.com"},
+        "articleBody": "QC betyder kvalitetskontroll. Om kontrollbilder finns, jämför färg, synlig sömnad, etikett, antal och tillbehör med beställningen. Be om närbilder eller mått om något är oklart. Bilder kan visa synliga avvikelser men bevisar inte äkthet, komfort, materialinnehåll eller långsiktig hållbarhet."
+      },
+      {
+        "@type": "Article",
+        "headline": "Från produktlänk till dokumenterat val",
+        "inLanguage": "sv",
+        "author": {"@type": "Organization", "name": "hipobuyfind.com"},
+        "articleBody": "Spara ursprungslänken, säljarens namn och den variant du vill ha. Kontrollera att storlek, färg och eventuellt modellnummer stämmer på den aktuella produktsidan. Läs villkor för retur och reklamation innan betalning. En sparad skärmbild av beskrivningen kan hjälpa dig att jämföra det beställda med det levererade."
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "sv",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vad är en OKEYHAUL spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En OKEYHAUL spreadsheet är en sammanställning av produktlänkar som används för att upptäcka och jämföra varor. Sammanställningen ersätter inte säljarens aktuella produktinformation, köpvillkor eller en kontroll av varans äkthet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är detta OKEYHAULs officiella webbplats?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Detta är en fristående svensk informationssida. Kategorilänkarna leder till angivna kategorier på hipobuyfind.com, och övriga navigeringslänkar leder till dess startsida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur väljer jag rätt storlek?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jämför dina mått med storlekstabellen för den specifika modellen. För skor använder du fotlängd; för kläder jämför du med ett plagg som passar. Kontrollera om tabellen visar kroppsmått eller plaggets mått."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan QC-bilder bevisa att en vara är äkta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. QC-bilder kan hjälpa dig att upptäcka synliga fel eller fel variant, men de är inte ett äkthetsintyg. Begär dokumentation och välj en verifierbar säljare om äkthet är avgörande."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur räknar jag på kostnaden till Sverige?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Räkna samman varupris, eventuell inrikesfrakt, hanterings- och betalningsavgifter, valutaväxling samt internationell frakt. Kontrollera dessutom aktuell moms, eventuell tull och transportörens avgifter för din försändelse."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Visar bilderna produkter som finns att köpa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bilderna är redaktionella stilreferenser. De visar inte verifierat lager, ett erbjudande eller ett officiellt samarbete. Kontrollera alltid den aktuella produktsidan för innehåll, tillgänglighet och villkor."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/fwcty/">
+</head>
+<body>
+  <div class="topline">SVENSK KÖPGUIDE · STIL, MÅTT OCH GENOMTÄNKTA VAL</div>
+
+  <header class="header wrap">
+    <a class="logo" href="https://www.hipobuyfind.com" aria-label="hipobuyfind.com – till startsidan">hipobuyfind.com</a>
+    <span class="header-meta">En fristående guide till produktfynd</span>
+    <a class="header-link" href="https://www.hipobuyfind.com">Utforska sortimentet ↗</a>
+  </header>
+
+  <main>
+    <nav class="categories wrap" aria-label="Produktkategorier">
+      <span class="eyebrow">Börja med en kategori</span>
+      <div class="category-grid">
+        <a href="https://hipobuyfind.com/category-911-Shoes.html">Skor <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Huvtröjor &amp; tröjor <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirts <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-914-Jackets.html">Jackor <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Byxor &amp; shorts <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-916-Headwear.html">Huvudbonader <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-917-Sets.html">Matchande set <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underkläder <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-919-Jersey.html">Matchtröjor <span aria-hidden="true">↗</span></a>
+        <a href="https://hipobuyfind.com/category-920-Accessories.html">Accessoarer <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">Stilanteckningar / köp med bättre underlag</span>
+        <h1 id="hero-title">OKEYHAUL spreadsheet<span>.<br>Från fynd till rätt val.</span></h1>
+        <p>En snygg bild är början. Rätt mått, en tydlig produktlänk och en genomräknad kostnad tar dig vidare. Här får du en svensk guide till att jämföra skor, kläder och accessoarer.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Upptäck produktkategorier <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=960&amp;q=80"
+          srcset="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=960&amp;q=80 960w"
+          sizes="(max-width: 850px) 100vw, 50vw"
+          alt="Röd Nike-sneaker med ljus sula mot röd bakgrund"
+          width="960"
+          height="960"
+          loading="eager"
+          fetchpriority="high">
+        <figcaption>Nike som stilreferens · Bilden är inte en lager- eller äkthetsbekräftelse.</figcaption>
+      </figure>
+    </section>
+
+    <section class="quick-answer wrap" aria-labelledby="short-answer">
+      <h2 id="short-answer">Vad är en spreadsheet?</h2>
+      <p>En <strong>OKEYHAUL spreadsheet</strong> är en sammanställning av produktlänkar som används för att upptäcka och jämföra varor. Se den som en startpunkt: kontrollera sedan originalannonsen, varianten, säljarens villkor och hela kostnaden innan du beställer.</p>
+    </section>
+
+    <section class="section wrap" aria-labelledby="style-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Tema / detaljer som håller ihop stilen</span>
+          <h2 id="style-title">En tydlig silhuett.<br>Några väl valda detaljer.</h2>
+        </div>
+        <p>Börja med hur plagget eller accessoaren ska användas. Jämför proportioner och funktion innan du fastnar för ett varumärkesnamn.</p>
+      </div>
+
+      <div class="editorial">
+        <figure class="editorial-image">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bgiusk6ilx.jpeg?width=720"
+            alt="Ljusblå Dior-väska med motiv av en gul klacksko"
+            width="720"
+            height="480"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <strong>Dior / färg som blickfång</strong>
+            En redaktionell referens för färg och form. Jämför mått, öppning och bärsätt när du väljer en accessoar.
+          </figcaption>
+        </figure>
+
+        <div class="editorial-copy">
+          <span class="eyebrow">Fyra kontrollpunkter</span>
+          <h3>Gör en kort lista innan du går vidare</h3>
+          <ul class="checks">
+            <li><strong>Passform</strong><span>Jämför faktiska mått, inte enbart S, M, L eller ett EU-nummer.</span></li>
+            <li><strong>Material</strong><span>Läs materialsammansättningen och be om förtydligande om beskrivningen är vag.</span></li>
+            <li><strong>Utförande</strong><span>Granska synliga sömmar, kanter, beslag och produktens proportioner.</span></li>
+            <li><strong>Villkor</strong><span>Kontrollera retur, reklamation och vad som händer om fel variant levereras.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="guides-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">OKEYHAUL köpguide / tre korta artiklar</span>
+          <h2 id="guides-title">Läs innan du väljer.</h2>
+        </div>
+        <p>Praktiska svar om passform, kontrollbilder och produktinformation.</p>
+      </div>
+
+      <div class="guides">
+        <article class="guide">
+          <span class="number">01 / STORLEK</span>
+          <h3>Storlek först: så jämför du skor och plagg</h3>
+          <p>För skor: mät båda fötterna och utgå från den längre foten. Jämför med säljarens tabell för just modellen; samma EU-storlek kan passa olika.</p>
+          <p>För kläder: jämför bröstvidd, längd och ärm med ett plagg du redan använder. Kontrollera om tabellen anger plaggets mått eller kroppsmått.</p>
+          <p>För huvudbonader och accessoarer: kontrollera omkrets, justering och material.</p>
+          <a href="https://www.hipobuyfind.com">Utforska plagg och modeller ↗</a>
+        </article>
+
+        <article class="guide">
+          <span class="number">02 / BILDKONTROLL</span>
+          <h3>QC-bilder: vad går faktiskt att kontrollera?</h3>
+          <p>QC betyder kvalitetskontroll. Om kontrollbilder finns, jämför färg, synlig sömnad, etikett, antal och tillbehör med beställningen.</p>
+          <p>Be om närbilder eller mått om något är oklart. Bilder kan visa synliga avvikelser men bevisar inte äkthet, komfort, materialinnehåll eller långsiktig hållbarhet.</p>
+          <a href="https://www.hipobuyfind.com">Börja din produktjämförelse ↗</a>
+        </article>
+
+        <article class="guide">
+          <span class="number">03 / PRODUKTLÄNKAR</span>
+          <h3>Från produktlänk till dokumenterat val</h3>
+          <p>Spara ursprungslänken, säljarens namn och den variant du vill ha. Kontrollera att storlek, färg och eventuellt modellnummer stämmer på den aktuella produktsidan.</p>
+          <p>Läs villkor för retur och reklamation innan betalning. En sparad skärmbild av beskrivningen kan hjälpa dig att jämföra det beställda med det levererade.</p>
+          <a href="https://www.hipobuyfind.com">Hitta en kategori att jämföra ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" style="margin-top:64px" aria-labelledby="cost-title">
+      <div class="wrap band-inner">
+        <div>
+          <span class="eyebrow">OKEYHAUL frakt till Sverige / budget</span>
+          <h2 id="cost-title">Räkna hela vägen till dörren.</h2>
+        </div>
+        <div>
+          <p>Ett varupris säger inte vad beställningen kostar totalt. Be om en aktuell sammanställning och kontrollera vilka avgifter som redan ingår. Fraktberäkningar kan förändras när paketet vägs och mäts.</p>
+          <p>För leverans till Sverige behöver du också kontrollera aktuell moms, eventuell tull och transportörens hanteringsavgifter. Spara beräkningsunderlaget så att du kan följa upp slutbeloppet.</p>
+          <div class="formula">
+            <strong>Din budget:</strong> varor + eventuell inrikesfrakt + hantering + betalning och valutaväxling + internationell frakt + tillämpliga skatter och avgifter.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="comparison-title">
+      <span class="eyebrow">OKEYHAUL produktlänkar / jämförelseunderlag</span>
+      <h2 id="comparison-title">Vad behöver en användbar produktlista?</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Kontrollera uppgifterna på den aktuella produktsidan innan köp.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Uppgift</th>
+              <th scope="col">Vad du kontrollerar</th>
+              <th scope="col">Varför det hjälper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Originalannons</td>
+              <td>Att länken fungerar och visar rätt säljare och produkt.</td>
+              <td>En äldre sammanställning kan länka till ändrat innehåll.</td>
+            </tr>
+            <tr>
+              <td>Exakt variant</td>
+              <td>Färg, storlek, modell och vad som följer med.</td>
+              <td>Liknande bilder kan avse olika utföranden.</td>
+            </tr>
+            <tr>
+              <td>Mått och material</td>
+              <td>Modellspecifik storlekstabell och materialsammansättning.</td>
+              <td>Ger bättre beslutsunderlag än enbart produktnamnet.</td>
+            </tr>
+            <tr>
+              <td>Kontrollbilder</td>
+              <td>Om bilderna gäller din vara eller bara är generella exempel.</td>
+              <td>Gör det lättare att bedöma vad bilderna faktiskt visar.</td>
+            </tr>
+            <tr>
+              <td>Kostnad och villkor</td>
+              <td>Avgifter, fraktunderlag, returrätt och tidsfrister.</td>
+              <td>Minskar risken att viktiga kostnader eller villkor förbises.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="wrap faq-layout" aria-labelledby="faq-title">
+      <div>
+        <span class="eyebrow">OKEYHAUL QC-bilder / vanliga frågor</span>
+        <h2 id="faq-title">Tydliga svar.<br>Bättre beslut.</h2>
+        <p>Här är det viktigaste att känna till innan du använder en produktlista som inköpsunderlag.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Vad är en OKEYHAUL spreadsheet?</summary>
+          <p>En OKEYHAUL spreadsheet är en sammanställning av produktlänkar som används för att upptäcka och jämföra varor. Sammanställningen ersätter inte säljarens aktuella produktinformation, köpvillkor eller en kontroll av varans äkthet.</p>
+        </details>
+        <details>
+          <summary>Är detta OKEYHAULs officiella webbplats?</summary>
+          <p>Nej. Detta är en fristående svensk informationssida. Kategorilänkarna leder till angivna kategorier på hipobuyfind.com, och övriga navigeringslänkar leder till dess startsida.</p>
+        </details>
+        <details>
+          <summary>Hur väljer jag rätt storlek?</summary>
+          <p>Jämför dina mått med storlekstabellen för den specifika modellen. För skor använder du fotlängd; för kläder jämför du med ett plagg som passar. Kontrollera om tabellen visar kroppsmått eller plaggets mått.</p>
+        </details>
+        <details>
+          <summary>Kan QC-bilder bevisa att en vara är äkta?</summary>
+          <p>Nej. QC-bilder kan hjälpa dig att upptäcka synliga fel eller fel variant, men de är inte ett äkthetsintyg. Begär dokumentation och välj en verifierbar säljare om äkthet är avgörande.</p>
+        </details>
+        <details>
+          <summary>Hur räknar jag på kostnaden till Sverige?</summary>
+          <p>Räkna samman varupris, eventuell inrikesfrakt, hanterings- och betalningsavgifter, valutaväxling samt internationell frakt. Kontrollera dessutom aktuell moms, eventuell tull och transportörens avgifter för din försändelse.</p>
+        </details>
+        <details>
+          <summary>Visar bilderna produkter som finns att köpa?</summary>
+          <p>Bilderna är redaktionella stilreferenser. De visar inte verifierat lager, ett erbjudande eller ett officiellt samarbete. Kontrollera alltid den aktuella produktsidan för innehåll, tillgänglighet och villkor.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="topics-title">
+      <div class="topics">
+        <span class="eyebrow">Fördjupning / välj nästa fråga</span>
+        <h2 id="topics-title">Sökfrågor som gör jämförelsen mer konkret</h2>
+        <p>Utgå från vad du behöver veta om produkten. De här frågorna hjälper dig att bygga en användbar inköpslista i stället för att bara samla fler länkar.</p>
+        <div class="topic-grid">
+          <div>
+            <h3>Hitta och jämföra</h3>
+            <ul>
+              <li>Hur använder jag en OKEYHAUL spreadsheet?</li>
+              <li>Hur kontrollerar jag en gammal produktlänk?</li>
+              <li>Hur jämför jag två liknande annonser?</li>
+              <li>Hur hittar jag säljarens produktnummer?</li>
+              <li>Hur väljer jag sneakers för vardagsbruk?</li>
+              <li>Vad bör jag kontrollera på en matchtröja?</li>
+              <li>Hur jämför jag material i huvtröjor?</li>
+              <li>Hur bedömer jag storleken på en accessoar?</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Storlek och kontroll</h3>
+            <ul>
+              <li>Hur mäter jag fotlängd hemma?</li>
+              <li>Vad betyder plaggets bröstvidd?</li>
+              <li>Hur jämför jag en jacka med mitt favoritplagg?</li>
+              <li>Hur väljer jag längd på byxor och shorts?</li>
+              <li>Hur mäter jag huvudomkrets för en keps?</li>
+              <li>Vad ska synas på tydliga QC-bilder?</li>
+              <li>När behöver jag be om fler närbilder?</li>
+              <li>Hur dokumenterar jag fel färg eller storlek?</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Budget och leverans</h3>
+            <ul>
+              <li>Hur räknar jag ut total inköpskostnad?</li>
+              <li>Vilka avgifter kan tillkomma vid betalning?</li>
+              <li>Hur påverkar valutaväxling slutpriset?</li>
+              <li>Vad är skillnaden mellan vikt och volymvikt?</li>
+              <li>Vad behöver jag kontrollera vid frakt till Sverige?</li>
+              <li>Vilka returvillkor gäller före internationell frakt?</li>
+              <li>Hur jämför jag fraktalternativ utan prisgarantier?</li>
+              <li>Vilka beställningsuppgifter bör jag spara?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div>
+          <h2>Börja med en kategori du faktiskt behöver.</h2>
+          <p>Välj några alternativ. Kontrollera måtten. Jämför hela kostnaden.</p>
+        </div>
+        <a class="button" href="https://www.hipobuyfind.com">Gå till hipobuyfind.com <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p><strong>hipobuyfind.com · Svensk informationsguide.</strong> Sidan är fristående och har ingen uppgiven officiell koppling till OKEYHAUL, Nike, Louis Vuitton, Gucci, Hermès eller Dior. Varumärkesnamn används som referenser. Inga priser, lageruppgifter, leveranstider eller äkthetsgarantier lämnas här.</p>
+    <div class="credits">
+      <p>Bildkrediter: Nike-fotografi via Unsplash. Dior-fotografi: othree, ”Bgiusk6ilx.jpeg”, via Wikimedia Commons, CC BY 2.0. Bilden visas utan beskärning. Källa: https://commons.wikimedia.org/wiki/File:Bgiusk6ilx.jpeg · Licens: https://creativecommons.org/licenses/by/2.0/</p>
+    </div>
+  </footer>
+</body>
+</html>
